@@ -65,6 +65,7 @@
       transition: transform 0.5s;
       flex: 1 0 auto;
       display : flex;
+      justify-content: center;
       align-items: center;  
     }
     .panel > *:first-child { transform: translateY(-100%); }
@@ -127,7 +128,16 @@
       this.classList.toggle('open');
     }
 
+    function toggleActive(){
+      console.log(e.propertyName);
+      if (e.propertyName.includes('flex')) {
+        this.classList.toggle('open-active');
+      }
+    }
+
     panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    panels.forEach(panel => panel.addEventListener('transitioned', toggleActive));
+
 
   </script>
 
